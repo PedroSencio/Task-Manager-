@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React, { use, useEffect } from 'react';
 import './static/Home.css';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../supabaseClient';
@@ -9,6 +9,69 @@ export default function Home() {
   const [senha, setSenha] = React.useState('');
   const navigate = useNavigate();
   const [login, setlogin] = React.useState(true);
+
+  // Processar callback do Google OAuth
+  useEffect(() => {
+    const handleGoogleCallback = async () => {
+      // Verificar se há um hash de token na URL (callback do Google)
+      if (window.location.hash.includes('access_token')) {
+        try {
+          // Obter a sessão do Supabase
+          const { data: { session }, error } = await supabase.auth.getSession();
+          
+          if (session && session.user) {
+            const user = session.user;
+            const userName = user.user_metadata?.name || user.email;
+            
+            // Verificar se usuário já existe na tabela usuarios
+            const { data: existingUser, error: checkError } = await supabase
+              .from('usuarios')
+              .select('*')
+              .eq('nome', userName)
+              .single();
+
+            let finalUser;
+            
+            if (!existingUser) {
+              // Criar usuário na tabela usuarios se não existir
+              const { data: newUser, error: insertError } = await supabase
+                .from('usuarios')
+                .insert([{
+                  nome: userName,
+                  senha: 'google_auth' // Senha especial para login Google
+                }])
+                .select()
+                .single();
+
+              if (insertError) {
+                console.error('Erro ao criar usuário Google:', insertError);
+                return;
+              }
+              finalUser = newUser;
+            } else {
+              finalUser = existingUser;
+            }
+
+            // Salvar no localStorage
+            localStorage.setItem('userId', finalUser.id);
+            localStorage.setItem('userName', finalUser.nome);
+            
+            // Limpar a URL removendo o hash
+            window.history.replaceState({}, document.title, window.location.pathname);
+            
+            // Redirecionar para HomePageUser
+            navigate(`/${finalUser.nome}`, { 
+              state: { userId: finalUser.id, userName: finalUser.nome } 
+            });
+          }
+        } catch (err) {
+          console.error('Erro ao processar callback Google:', err);
+        }
+      }
+    };
+
+    handleGoogleCallback();
+  }, [navigate]);
 
   // Funções para abrir links externos
   function handleGitHub() {
