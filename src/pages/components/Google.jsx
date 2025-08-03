@@ -62,8 +62,17 @@ const LoginGoogle = () => {
   }, [navigate]);
 
   const loginWithGoogle = async () => {
+    // Detecta se está em produção ou desenvolvimento
+    const isProduction = window.location.hostname !== 'localhost';
+    const redirectUrl = isProduction 
+      ? window.location.origin 
+      : 'http://localhost:5173';
+
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
+      options: {
+        redirectTo: redirectUrl
+      }
     });
 
     if (error) {
