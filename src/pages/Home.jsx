@@ -113,7 +113,7 @@ export default function Home() {
     <div id='home'>
       <div id='header'>
         <div id='logo'>
-          <img src="/logo.png" alt="Logo" /> 
+          <img src="/favicon.png" alt="Logo" /> 
           Task Manager
         </div>
         <div id='contato'>
