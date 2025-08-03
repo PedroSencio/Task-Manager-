@@ -63,10 +63,14 @@ const LoginGoogle = () => {
 
   const loginWithGoogle = async () => {
     // Detecta se está em produção ou desenvolvimento
-    const isProduction = window.location.hostname !== 'localhost';
+    const isProduction = !window.location.hostname.includes('localhost') && !window.location.hostname.includes('127.0.0.1');
     const redirectUrl = isProduction 
       ? window.location.origin 
       : 'http://localhost:5173';
+
+    console.log('Hostname:', window.location.hostname);
+    console.log('Is Production:', isProduction);
+    console.log('Redirect URL:', redirectUrl);
 
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
