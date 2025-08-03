@@ -1,0 +1,251 @@
+.configuracoes-container {
+    width: calc(100vw - 250px);
+    height: 100vh;
+    margin-left: 0px;
+    background-color: rgb(19, 19, 19);
+    color: white;
+    padding: 40px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.configuracoes-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.configuracoes-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.configuracoes-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+.configuracoes-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.configuracoes-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    gap: 20px;
+}
+
+.back-button {
+    background: none;
+    border: 1px solid #ffffff18;
+    color: rgb(204, 204, 204);
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+.configuracoes-header h1 {
+    color: rgb(228, 228, 228);
+    font-size: 32px;
+    margin: 0;
+}
+
+.message {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.message.success {
+    background-color: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    color: rgb(34, 197, 94);
+}
+
+.message.error {
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: rgb(239, 68, 68);
+}
+
+.configuracoes-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.config-section {
+    background-color: rgb(30, 30, 30);
+    border: 1px solid #ffffff18;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.config-section h2 {
+    color: rgb(228, 228, 228);
+    font-size: 20px;
+    margin: 0 0 20px 0;
+    border-bottom: 1px solid #ffffff18;
+    padding-bottom: 10px;
+}
+
+.config-item {
+    margin-bottom: 20px;
+}
+
+.config-item:last-child {
+    margin-bottom: 0;
+}
+
+.config-item label {
+    display: block;
+    color: rgb(204, 204, 204);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.input-group input {
+    flex: 1;
+}
+
+.password-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="password"] {
+    background-color: rgb(40, 40, 40);
+    border: 1px solid #ffffff18;
+    border-radius: 8px;
+    padding: 12px 15px;
+    color: white;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #4a9eff;
+    box-shadow: 0 0 0 2px rgba(74, 158, 255, 0.2);
+}
+
+input[type="text"]:disabled,
+input[type="password"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background-color: #4a9eff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: #357abd;
+    transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-danger {
+    background-color: rgb(220, 38, 38);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-danger:hover:not(:disabled) {
+    background-color: rgb(185, 28, 28);
+    transform: translateY(-1px);
+}
+
+.btn-danger:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.danger-section {
+    border-color: rgba(220, 38, 38, 0.3);
+    background-color: rgba(220, 38, 38, 0.05);
+}
+
+.danger-section h2 {
+    color: rgb(220, 38, 38);
+    border-bottom-color: rgba(220, 38, 38, 0.3);
+}
+
+.warning-text {
+    color: rgb(156, 163, 175);
+    font-size: 13px;
+    margin: 8px 0 15px 0;
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .configuracoes-container {
+        width: 100vw;
+        margin-left: 0;
+        padding: 20px;
+    }
+    
+    .configuracoes-header {
+        margin-bottom: 20px;
+    }
+    
+    .configuracoes-header h1 {
+        font-size: 24px;
+    }
+    
+    .config-section {
+        padding: 20px;
+    }
+    
+    .input-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .input-group input {
+        margin-bottom: 10px;
+    }
+}

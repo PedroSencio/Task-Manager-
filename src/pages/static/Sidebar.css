@@ -1,0 +1,123 @@
+#body {
+    width: 100vw;
+    height: 100vh;
+}
+#sidebar{
+    background-color: rgb(25, 25, 25);
+    width: 250px;
+    align-items: center;
+    text-align: center;
+    min-width: 10%;
+    height: 100vh;
+}
+#sidebar-start {
+    width: 100%;
+    margin-top: 70px;
+    height: 200px;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    align-items: center;
+}
+#sidebar-start h3{
+    color: rgb(186, 186, 186);
+    font-size: 14px;
+    font-weight: bold;
+}
+#sidebar-middle {
+    width: 100%;
+    height: 200px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#sidebar-middle h3 {
+    color: rgb(186, 186, 186);
+    font-size: 14px;
+    font-weight: bold;
+}
+#sidebar-end {
+    width: 200px;
+    height: auto;
+    position: absolute;
+    gap: 10px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    bottom: 0;
+}
+#sidebar-end button {
+    background-color: transparent;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#sidebar-end button img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    color: white;
+    filter: invert(0.8);
+}
+
+#settings-btn {
+    transition: all 0.4s ease-in-out;
+}
+
+#settings-btn:hover {
+    rotate: 90deg;
+    transition: all 0.4s ease-in-out;
+}
+
+#logout-btn {
+    transition: all 0.3s ease-in-out;
+}
+#logout-btn:hover {
+    background: red;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-sidebar-add{
+    width: 100%;
+    height: 30px;
+    border-radius: 12px;
+    background-color: rgb(30, 30, 30);
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(61, 61, 61);
+    border-style: dashed;
+    text-align: center;
+    transition: all 0.16s ease-in-out;
+}
+
+.btn-sidebar-add:hover {
+    background-color: rgb(37,37,37);
+    transition: all 0.16s ease-in-out;
+}
+
+.btn-sidebar-task {
+    width: 100%;
+    height: 30px;
+    border-radius: 12px;
+    background-color: rgb(30, 30, 30);
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: all 0.16s ease-in-out;
+}
+
+.btn-sidebar-task:hover {
+    background-color: rgb(50, 50, 50);
+    transition: all 0.16s ease-in-out;
+}
